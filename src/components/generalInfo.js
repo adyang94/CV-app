@@ -3,16 +3,18 @@ import React, {useState} from 'react';
 function GeneralInfo (props) {
 
   const [generalInfoData, setGeneralInfo] = useState({
-    name: '',
+    name: 'hi',
     email: '',
     phoneNumber: ''
   });
 
-  const saveGeneralInfo = (newInfo) => {
-    setGeneralInfo(
+  const saveGeneralInfo = (e) => {
+    const { name, value } = e.target
+    setGeneralInfo({
       ...generalInfoData,
-
-      )
+      [name]: value
+    });
+    console.log(generalInfoData);
   };
 
   return (  //JSX
