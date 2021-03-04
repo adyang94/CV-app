@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import '../styles/generalInfo.css';
+
 
 function GeneralInfo (props) {
 
   const [generalInfoData, setGeneralInfo] = useState({
-    name: 'hi',
+    name: '',
     email: '',
     phoneNumber: ''
   });

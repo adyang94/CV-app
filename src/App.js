@@ -3,11 +3,12 @@ import React from 'react';
 import EducationSection from './components/Education';
 import WorkSection from './components/Work';
 import HandleSubmit from './components/HandleSubmit';
+import './styles/style.css';
 
 function App() {
   return (
     <div className="App">
-      <GeneralInfo />
+      <GeneralInfo/>
       <WorkSection/>
       <EducationSection/>
       <HandleSubmit/>

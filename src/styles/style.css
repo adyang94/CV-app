@@ -1,3 +1,10 @@
+:root {
+  padding: 0;
+  margin: 0;
+}
+
+/*--------------- GENERAL INFO SECTION---------------*/
+/*---------------BEFORE SUBMITTING INFO---------------*/
 .generalInfo {
   color: blue;
   height: 125px;
@@ -30,3 +37,11 @@ h3 {
   width: 97%;
 }
 
+
+/*--------------- WORK EXPERIENCE SECTION---------------*/
+/*---------------BEFORE SUBMITTING INFO---------------*/
+.workExperience {
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
