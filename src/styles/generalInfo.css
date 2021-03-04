@@ -1,12 +1,32 @@
 .generalInfo {
   color: blue;
-  border: 100px black;
-  height: 10px;
+  height: 125px;
   display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 33% 33% 33%;
   margin: 0;
   padding: 0;
+}
+h3 {
+  grid-column: 1/3;
 
 }
-#generalInfoNameInput {
-  
+.generalInfoName {
+  grid-column: 1/2;
+  grid-row: 2/3;
 }
+.generalInfoPhoneNumber {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  color: red;
+}
+.generalInfoEmail {
+  grid-column: 1/3;
+  grid-row: 3/4;
+  color: aqua;
+}
+#generalInfoEmailInput {
+  display: absolute;
+  width: 97%;
+}
+

@@ -20,8 +20,8 @@ function GeneralInfo (props) {
 
   return (
     <div className = "generalInfo">
-      <h1>General Info:</h1><br/>
-      <p>Name</p>
+      <h3>General Info:</h3><br/>
+      <p className = 'generalInfoName'>Name<br></br>
         <input
           name = 'name'
           type = 'text'
@@ -30,7 +30,18 @@ function GeneralInfo (props) {
           id = 'generalInfoNameInput'
           placeholder = 'Insert Name'
         />
-      <p>Email</p>
+      </p>
+      <p className = 'generalInfoPhoneNumber'>Phone Number<br></br>
+        <input
+          name = 'phoneNumber'
+          type = 'text'
+          value = {generalInfoData.phoneNumber}
+          onChange = {saveGeneralInfo}
+          id = 'generalInfoPhoneNumberInput'
+          placeholder = 'Add Phone Number'
+        />
+      </p>
+      <p className = 'generalInfoEmail'>Email<br></br>
         <input
           name = 'email'
           type = 'email'
@@ -39,15 +50,7 @@ function GeneralInfo (props) {
           id = 'generalInfoEmailInput'
           placeholder = 'Insert Email'
         />
-      <p>Phone Number</p>
-        <input
-          name = 'phoneNumber'
-          type = 'number'
-          value = {generalInfoData.phoneNumber}
-          onChange = {saveGeneralInfo}
-          id = 'generalInfoPhoneNumber'
-          placeholder = 'Add Phone Number'
-        />
+      </p>
 
     </div>
   )
