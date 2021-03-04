@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import GeneralInfo from './components/generalInfo';
 
 function App() {

@@ -1,3 +1,12 @@
 .generalInfo {
   color: blue;
+  border: 100px black;
+  height: 10px;
+  display: grid;
+  margin: 0;
+  padding: 0;
+
+}
+#generalInfoNameInput {
+  
 }
