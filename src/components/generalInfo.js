@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../styles/generalInfo.css';
 
 function GeneralInfo (props) {
 
@@ -12,13 +13,13 @@ function GeneralInfo (props) {
     const { name, value } = e.target
     setGeneralInfo({
       ...generalInfoData,
-      [name]: value
+      [name]: value //using square bracket for dynamic object key naming.
     });
     console.log(generalInfoData);
   };
 
-  return (  //JSX
-    <div>
+  return (
+    <div className = "generalInfo">
       <h1>General Info:</h1><br></br>
       <h4>Name</h4>
         <input
