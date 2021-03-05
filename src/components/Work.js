@@ -5,7 +5,7 @@ import RenderForm from './renderForm'
 function WorkSection () {
   
   const addWorkExperience = () => {
-    console.log('hi');
+    console.log('adding work experience');
         //select HTML element
     const formsCtn = document.querySelector('.formsCtn-WE');
 
@@ -64,7 +64,7 @@ function WorkSection () {
 
   return (
     <div className = 'workExperience'>
-      <h3>Work Experience</h3>
+      <h3>Work Experience:</h3>
       <div className = 'formsCtn-WE'></div>
       <AddBtn 
         title = 'Work Experience' 
