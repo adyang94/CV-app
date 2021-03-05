@@ -1,6 +1,9 @@
 :root {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+
 }
 
 /*--------------- GENERAL INFO SECTION---------------*/
@@ -16,25 +19,36 @@
 }
 h3 {
   grid-column: 1/3;
-
+  margin: 0;
+  padding: 0;
+  justify-self: center; 
+  align-self: center;
 }
 .generalInfoName {
   grid-column: 1/2;
   grid-row: 2/3;
+  margin: 0;
+  padding: 0;
 }
 .generalInfoPhoneNumber {
   grid-column: 2/3;
   grid-row: 2/3;
   color: red;
+  margin: 0;
+  padding: 0;
 }
 .generalInfoEmail {
   grid-column: 1/3;
   grid-row: 3/4;
   color: aqua;
+  margin: 0;
+  padding: 0;
 }
 #generalInfoEmailInput {
   display: absolute;
   width: 97%;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -43,5 +57,10 @@ h3 {
 .workExperience {
   margin: 0;
   padding: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+}
+.formCtn {
+  border: solid 1px black;
+  color: red;
 }
