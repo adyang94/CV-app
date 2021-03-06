@@ -1,36 +1,50 @@
 import React, {useState} from 'react';
 
 
+function renderingGenInfo () {
+  /* This section contains the changes when save is clicked.
+   -- change display of input form to 'none'
+   -- change display of rendered form to show it.
+   -- use JSX to display new finalized form.
+   */
+};
 function GeneralInfo (props) {
 
-  const [generalInfoData, setGeneralInfo] = useState({
+
+  let [generalInfoData, setGeneralInfo] = useState({
     name: '',
     email: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    renderGenInfo: false
   });
 
-  const saveGeneralInfo = (e) => {
-    const { name, value } = e.target
+  const onChange = (e) => {
+    const { name, value } = e.target  // destructuring the values from the clicked statement.
     setGeneralInfo({
       ...generalInfoData,
-      [name]: value //using square bracket for dynamic object key naming.
+      
+      [name]: value 
+      //using square bracket for dynamic object key naming.
     });
-    console.log(generalInfoData);
+    console.log(`hi: ${generalInfoData.name}`);
     // props.saveData()
   };
   const saveInfo = (e) => {
-    /* This section contains the changes when save is clicked.
-     -- change display of input form to 'none'
-     -- change display of rendered form to show it.
-     -- use JSX to display new finalized form.
-     */
+
     e.preventDefault();
+    console.log(`Save Info running`)
     document.querySelector('.generalInfoFormCtn').style.display = 'none';
-    
+    setGeneralInfo({
+      ...generalInfoData,
+      renderGenInfo: true
+    });
   };
 
   return (
     <div className = "generalInfo">
+      
+      <renderingGenInfo renderGenInfo = {generalInfoData.renderGenInfo}/>  
+      
       <div className = "generalInfoFormCtn">
         <h3>General Info Form:</h3><br/>
         <form onSubmit = {saveInfo}>
@@ -39,7 +53,7 @@ function GeneralInfo (props) {
               name = 'name'
               type = 'text'
               value = {generalInfoData.name}
-              onChange = {saveGeneralInfo}
+              onChange = {onChange}
               id = 'generalInfoNameInput'
               placeholder = 'Insert Name'
             />
@@ -49,7 +63,7 @@ function GeneralInfo (props) {
               name = 'phoneNumber'
               type = 'text'
               value = {generalInfoData.phoneNumber}
-              onChange = {saveGeneralInfo}
+              onChange = {onChange}
               id = 'generalInfoPhoneNumberInput'
               placeholder = 'Add Phone Number'
             />
@@ -59,7 +73,7 @@ function GeneralInfo (props) {
               name = 'email'
               type = 'email'
               value = {generalInfoData.email}
-              onChange = {saveGeneralInfo}
+              onChange = {onChange}
               id = 'generalInfoEmailInput'
               placeholder = 'Insert Email'
             />
