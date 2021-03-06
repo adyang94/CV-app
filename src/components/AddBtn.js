@@ -2,7 +2,7 @@ import React from "react";
 
 function AddBtn (props) {
   return (
-    <div className = 'returnBtnContainer'>
+    <div className = 'addBtnContainer'>
       <button 
         id = {props.id}
         onClick = {props.addFormMethod}>
