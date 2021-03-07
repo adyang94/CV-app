@@ -1,14 +1,27 @@
 import React, {useState} from 'react';
 
 
-function renderingGenInfo () {
+function RenderingGenInfo (props) {
   /* This section contains the changes when save is clicked.
    -- change display of input form to 'none'
    -- change display of rendered form to show it.
    -- use JSX to display new finalized form.
    */
+
+  if (!props.generalInfoData.renderGenInfo) {
+    console.log('Rendering Gen Info null');
+    return null;
+  };
+  console.log(props.generalInfoData);
+  return (
+    <div>
+      {props.generalInfoData.name}<br/>
+      {props.generalInfoData.phoneNumber}<br/>
+      {props.generalInfoData.email}<br/>
+    </div>
+  )
 };
-function GeneralInfo (props) {
+function GeneralInfo () {
 
 
   let [generalInfoData, setGeneralInfo] = useState({
@@ -43,7 +56,7 @@ function GeneralInfo (props) {
   return (
     <div className = "generalInfo">
       
-      <renderingGenInfo renderGenInfo = {generalInfoData.renderGenInfo}/>  
+      
       
       <div className = "generalInfoFormCtn">
         <h3>General Info Form:</h3><br/>
@@ -81,6 +94,7 @@ function GeneralInfo (props) {
           <button type = "submit">Save</button>
         </form>
       </div>
+      <RenderingGenInfo generalInfoData = {generalInfoData}/>  
     </div>
   )
 };
