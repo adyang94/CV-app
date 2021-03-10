@@ -5,7 +5,10 @@ import RenderForm from './renderForm'
 function SaveWorkExp (props) {
   // This component handles what happens after clicking the save btn on the input form.
   // May add rendering responsibilities here too.
-  if (!props.openForm) return null;
+  if (!props.openForm) {
+    console.log('hi');
+    return null;
+  };
 
   return (
     <div className = "WE-input-form-ctn">
@@ -60,8 +63,8 @@ function WorkSection () {
   let [openForm, toggleOpenForm] = useState(false);
 
   // CURRENT STOPPING POINT: JUST SET UP WORK EXPERIENCE ARRAY STATE AND TOGGLE FORM STATE.
-  // NEXT STEP:  SET UP THE PAGE TO OPEN INPUT WHEN 'ADD' IS CLICKED.
-  
+  // NEXT STEP:  Bring the 'add' btn out of its own module and change the onClick attribute to have JS change the openForm variable to be true.
+
   // I AM WORKING ON THE WORK EXPERIENCE SECTION AND SETTING UP STATE FOR THE WORK EXPERIENCE ARRAY AS WELL AS THE TOGGLE OPEN FORMS CONDITION.
   // THIS IS TO OPEN THE INPUT FORM.
   // INPUT FORM WILL ADD INFORMATION TO WORK EXPERIENCE ARRAY
@@ -77,7 +80,7 @@ function WorkSection () {
       <AddBtn
         title = 'Work Experience' 
         id = 'addWorkExperienceBtn'
-        addFormMethod = {addWorkExperience}
+        
         //when button is clicked, above function will be called.
       />
     </div>
