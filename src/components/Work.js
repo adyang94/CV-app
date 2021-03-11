@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import AddBtn from './AddBtn';
 import RenderForm from './renderForm'
 
 function SaveWorkExp (props) {
@@ -7,6 +6,7 @@ function SaveWorkExp (props) {
   // May add rendering responsibilities here too.
   if (!props.openForm) {
     console.log('hi');
+    console.log(`openForm: ${props.openForm}`);
     return null;
   };
 
@@ -57,30 +57,39 @@ function SaveWorkExp (props) {
   )
 };
 
+function AddBtn (props) {
+  return (
+    <div className = 'addBtnContainer'>
+      <button 
+        id = {props.id}
+        onClick = {props.handleForm}>
+        Add {props.title}
+      </button>
+    </div>
+  )
+}
+
 
 function WorkSection () {
   let [workExp, handleChange] = useState([]);
   let [openForm, toggleOpenForm] = useState(false);
 
-  // CURRENT STOPPING POINT: JUST SET UP WORK EXPERIENCE ARRAY STATE AND TOGGLE FORM STATE.
-  // NEXT STEP:  Bring the 'add' btn out of its own module and change the onClick attribute to have JS change the openForm variable to be true.
-
-  // I AM WORKING ON THE WORK EXPERIENCE SECTION AND SETTING UP STATE FOR THE WORK EXPERIENCE ARRAY AS WELL AS THE TOGGLE OPEN FORMS CONDITION.
-  // THIS IS TO OPEN THE INPUT FORM.
-  // INPUT FORM WILL ADD INFORMATION TO WORK EXPERIENCE ARRAY
-
-  
-
+  const handleForm = () => {
+    toggleOpenForm(!openForm);
+    
+  }
 
   return (
     <div className = 'workExperience'>
       <h3>Work Experience:</h3>
       <div className = 'formsCtn-WE'></div>
-      <SaveWorkExp />
+      <SaveWorkExp 
+        openForm = {openForm}
+      />
       <AddBtn
         title = 'Work Experience' 
         id = 'addWorkExperienceBtn'
-        
+        handleForm = {handleForm}
         //when button is clicked, above function will be called.
       />
     </div>
@@ -88,6 +97,14 @@ function WorkSection () {
 }
 
 export default WorkSection;
+
+// 3-11-21
+  // CURRENT STOPPING POINT: JUST SET UP WORK EXPERIENCE ARRAY STATE AND TOGGLE FORM STATE.
+  // NEXT STEP:  Bring the 'add' btn out of its own module and change the onClick attribute to have JS change the openForm variable to be true.
+
+  // I AM WORKING ON THE WORK EXPERIENCE SECTION AND SETTING UP STATE FOR THE WORK EXPERIENCE ARRAY AS WELL AS THE TOGGLE OPEN FORMS CONDITION.
+  // THIS IS TO OPEN THE INPUT FORM.
+  // INPUT FORM WILL ADD INFORMATION TO WORK EXPERIENCE ARRAY
 
 // const addWorkExperience = () => {
   //   console.log('adding work experience');
