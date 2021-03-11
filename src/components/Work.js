@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import RenderForm from './renderForm'
 
-function SaveWorkExp (props) {
+function WorkExpForm (props) {
   // This component handles what happens after clicking the save btn on the input form.
   // May add rendering responsibilities here too.
   if (!props.openForm) {
@@ -12,47 +12,48 @@ function SaveWorkExp (props) {
 
   return (
     <div className = "WE-input-form-ctn">
-      <div></div>
-      <input
-        name = 'company'
-        type = 'text'
-        // value = 
-        // onChange = 
-        id = 'WE-company-input'
-        placeholder = 'Add Company'
-      /><br/>
-      <input
-        name = 'position'
-        type = 'text'
-        // value = 
-        // onChange = 
-        id = 'WE-position-input'
-        placeholder = 'Add Position/Title'
-      /><br/>
-      <input
-        name = 'responsibilities'
-        type = 'text'
-        // value = 
-        // onChange = 
-        id = 'WE-responsibilities-input'
-        placeholder = 'Add Responsibilities'
-      /><br/>
-      <input
-        name = 'start-date'
-        type = 'date'
-        // value = 
-        // onChange = 
-        id = 'WE-start-input'
-        placeholder = 'Add Start Date'
-      /><br/>
-      <input
-        name = 'end-date'
-        type = 'date'
-        // value = 
-        // onChange = 
-        id = 'WE-end-date'
-        placeholder = 'Add End Date'
-      /><br/>
+      <form onSubmit = {props.saveWorkExp}>
+        <input
+          name = 'company'
+          type = 'text'
+          // value = 
+          // onChange = 
+          id = 'WE-company-input'
+          placeholder = 'Add Company'
+        /><br/>
+        <input
+          name = 'position'
+          type = 'text'
+          // value = 
+          // onChange = 
+          id = 'WE-position-input'
+          placeholder = 'Add Position/Title'
+        /><br/>
+        <input
+          name = 'responsibilities'
+          type = 'text'
+          // value = 
+          // onChange = 
+          id = 'WE-responsibilities-input'
+          placeholder = 'Add Responsibilities'
+        /><br/>
+        <input
+          name = 'start-date'
+          type = 'date'
+          // value = 
+          // onChange = 
+          id = 'WE-start-input'
+          placeholder = 'Add Start Date'
+        /><br/>
+        <input
+          name = 'end-date'
+          type = 'date'
+          // value = 
+          // onChange = 
+          id = 'WE-end-date'
+          placeholder = 'Add End Date'
+        /><br/>
+      </form>
     </div>
   )
 };
@@ -76,15 +77,21 @@ function WorkSection () {
 
   const handleForm = () => {
     toggleOpenForm(!openForm);
+  }
+  const saveWorkExp = (newWorkExp) => {
+    handleChange([...workExp, newWorkExp])
     
+    // Current stopping point:  I just added forms toggling options.
+    // Next Step:  Test out updating the state for React and console log the work exp array right after setting state.
   }
 
   return (
     <div className = 'workExperience'>
       <h3>Work Experience:</h3>
       <div className = 'formsCtn-WE'></div>
-      <SaveWorkExp 
+      <WorkExpForm
         openForm = {openForm}
+        saveWorkExp = {saveWorkExp}
       />
       <AddBtn
         title = 'Work Experience' 
