@@ -5,14 +5,23 @@ function WorkExpForm (props) {
   // This component handles what happens after clicking the save btn on the input form.
   // May add rendering responsibilities here too.
   if (!props.openForm) {
-    console.log('hi');
     console.log(`openForm: ${props.openForm}`);
     return null;
   };
 
+  const initalWorkExp = {
+    company: '',
+    position: '',
+    responsbilities: '',
+    startDate: '',
+    endDate: ''
+  };
+
+  const [newWorkExp, updateWorkExp] = useState()
+
   return (
     <div className = "WE-input-form-ctn">
-      <form onSubmit = {props.saveWorkExp}>
+      <form>
         <input
           name = 'company'
           type = 'text'
@@ -38,7 +47,7 @@ function WorkExpForm (props) {
           placeholder = 'Add Responsibilities'
         /><br/>
         <input
-          name = 'start-date'
+          name = 'startDate'
           type = 'date'
           // value = 
           // onChange = 
@@ -46,14 +55,19 @@ function WorkExpForm (props) {
           placeholder = 'Add Start Date'
         /><br/>
         <input
-          name = 'end-date'
+          name = 'endDate'
           type = 'date'
           // value = 
           // onChange = 
           id = 'WE-end-date'
           placeholder = 'Add End Date'
         /><br/>
+        <button type="submit" onClick = {() => {
+          props.handleForm();
+          props.saveWorkExp();
+        }}>Submit</button>
       </form>
+      
     </div>
   )
 };
@@ -79,6 +93,7 @@ function WorkSection () {
     toggleOpenForm(!openForm);
   }
   const saveWorkExp = (newWorkExp) => {
+    console.log(newWorkExp)
     handleChange([...workExp, newWorkExp])
     
     // Current stopping point:  I just added forms toggling options.
@@ -92,6 +107,7 @@ function WorkSection () {
       <WorkExpForm
         openForm = {openForm}
         saveWorkExp = {saveWorkExp}
+        handleForm = {handleForm}
       />
       <AddBtn
         title = 'Work Experience' 
