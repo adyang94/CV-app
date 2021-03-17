@@ -1,18 +1,29 @@
 import React from 'react';
 import AddBtn from './AddBtn';
+import EduExpForm from './EduExpForm';
 
 function EducationSection () {
-  
+  const initEduExp = {
+    school: '',
+    major: '',
+    gpa: '',
+    startDate: '',
+    endDate: '',
+
+  }
 
   return (
     <div className = "educationExperience">
       <h3>Education:</h3>
       <div className = "formsCtn-edu">
+        <EduExpForm
+
+        />
       </div>
       <AddBtn
         title = "Education"
         id = "addEducationBtn"
-        addFormMethod = {addEducation}
+        addFormMethod = {}
       />
       
     </div>
@@ -21,7 +32,7 @@ function EducationSection () {
 
 export default EducationSection
 
-// const addEducation = () => {
+// const addEducation = () => {     school, major, GPA, start, end
 //   console.log('adding education');
 //       //select HTML element
 //   const formsCtn = document.querySelector('.formsCtn-edu');
