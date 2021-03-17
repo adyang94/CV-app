@@ -5,6 +5,8 @@ import React, {useState} from 'react';
 function EduExpForm () {
   const [eduExp, setEduExp] = useState([]);
 
+
+
 return (
   <div>
     <form>
@@ -56,7 +58,11 @@ return (
         onClick = 
         type = 'date'
       >
-      
+      <button
+        
+      >
+        Submit
+      </button>
       </input>
     </form>
   </div>

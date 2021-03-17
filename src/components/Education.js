@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AddBtn from './AddBtn';
 import EduExpForm from './EduExpForm';
 
-function EducationSection () {
-  const initEduExp = {
-    school: '',
-    major: '',
-    gpa: '',
-    startDate: '',
-    endDate: '',
+const initEduExp = {
+  school: '',
+  major: '',
+  gpa: '',
+  startDate: '',
+  endDate: '',
+}
 
+function EducationSection () {
+
+  const [formState, updateFormState] = useState(false);
+  
+  const toggleForm = () => {
+    console.log('toggling edu form');
+    updateFormState(!formState);
+  };
+  
+  const [eduExp, updateEduExp] = useState(initEduExp);
+
+  const addNewEduExp = (newEduExp) => {
+    console.log('Adding new educational experience to state');
+    const placeholder = [...eduExp, newEduExp];
+    updateEduExp(placeholder);
   }
 
   return (
@@ -17,14 +32,16 @@ function EducationSection () {
       <h3>Education:</h3>
       <div className = "formsCtn-edu">
         <EduExpForm
-
+          initEduExp = {initEduExp}
+          addNewEduExp = {addNewEduExp}
         />
       </div>
-      <AddBtn
-        title = "Education"
-        id = "addEducationBtn"
-        addFormMethod = {}
-      />
+      <div className = 'addBtnContainer'>
+        <button 
+          onClick = {toggleForm}>
+          Add Education
+        </button>
+      </div>
       
     </div>
   )
