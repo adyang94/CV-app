@@ -1,76 +1,6 @@
 import React, {useState} from 'react';
-import RenderForm from './renderForm'
-
-function WorkExpForm (props) {
-  // This component handles what happens after clicking the save btn on the input form.
-  // May add rendering responsibilities here too.
-  if (!props.openForm) {
-    console.log(`openForm: ${props.openForm}`);
-    return null;
-  };
-
-  const initalWorkExp = {
-    company: '',
-    position: '',
-    responsbilities: '',
-    startDate: '',
-    endDate: ''
-  };
-
-  const [newWorkExp, updateWorkExp] = useState()
-
-  return (
-    <div className = "WE-input-form-ctn">
-      <form>
-        <input
-          name = 'company'
-          type = 'text'
-          // value = 
-          // onChange = 
-          id = 'WE-company-input'
-          placeholder = 'Add Company'
-        /><br/>
-        <input
-          name = 'position'
-          type = 'text'
-          // value = 
-          // onChange = 
-          id = 'WE-position-input'
-          placeholder = 'Add Position/Title'
-        /><br/>
-        <input
-          name = 'responsibilities'
-          type = 'text'
-          // value = 
-          // onChange = 
-          id = 'WE-responsibilities-input'
-          placeholder = 'Add Responsibilities'
-        /><br/>
-        <input
-          name = 'startDate'
-          type = 'date'
-          // value = 
-          // onChange = 
-          id = 'WE-start-input'
-          placeholder = 'Add Start Date'
-        /><br/>
-        <input
-          name = 'endDate'
-          type = 'date'
-          // value = 
-          // onChange = 
-          id = 'WE-end-date'
-          placeholder = 'Add End Date'
-        /><br/>
-        <button type="submit" onClick = {() => {
-          props.handleForm();
-          props.saveWorkExp();
-        }}>Submit</button>
-      </form>
-      
-    </div>
-  )
-};
+import RenderForm from './renderForm';
+import WorkExpForm from './WorkExpForm';
 
 function AddBtn (props) {
   return (
@@ -83,7 +13,6 @@ function AddBtn (props) {
     </div>
   )
 }
-
 
 function WorkSection () {
   let [workExp, handleChange] = useState([]);
