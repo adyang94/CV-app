@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const initialWorkExp = {
   company: '',
   position: '',
-  responsbilities: '',
+  responsibilities: '',
   startDate: '',
   endDate: ''
 };
@@ -18,12 +18,10 @@ function WorkExpForm (props) {
     console.log(`openForm: ${props.openForm}`);
     return null;
   };
-
-
-  
   
   function updateWE (e) {
     console.log("setting WE");
+    console.log(newWorkExp);
     const {name, value} = e.target;
     setWE({...newWorkExp, [name]: value})
   }
@@ -50,30 +48,30 @@ function WorkExpForm (props) {
         <input
           name = 'responsibilities'
           type = 'text'
-          // value = 
-          // onChange = 
+          value = {newWorkExp.responsbilities}
+          onChange = {updateWE}
           id = 'WE-responsibilities-input'
           placeholder = 'Add Responsibilities'
         /><br/>
         <input
           name = 'startDate'
           type = 'date'
-          // value = 
-          // onChange = 
+          value = {newWorkExp.startDate}
+          onChange = {updateWE}
           id = 'WE-start-input'
           placeholder = 'Add Start Date'
         /><br/>
         <input
           name = 'endDate'
           type = 'date'
-          // value = 
-          // onChange = 
+          value = {newWorkExp.endDate}
+          onChange = {updateWE}
           id = 'WE-end-date'
           placeholder = 'Add End Date'
         /><br/>
         <button type="submit" onClick = {() => {
           props.handleForm();
-          props.saveWorkExp();
+          props.saveWorkExp(newWorkExp);
         }}>Submit</button>
       </form>
       

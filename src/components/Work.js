@@ -22,8 +22,8 @@ function WorkSection () {
     toggleOpenForm(!openForm);
   }
   const saveWorkExp = (newWorkExp) => {
-    console.log(newWorkExp)
-    handleChange([...workExp, newWorkExp])
+    let placeholder = [...workExp, newWorkExp];
+    handleChange(placeholder);
     
     // Current stopping point:  I just added forms toggling options.
     // Next Step:  Test out updating the state for React and console log the work exp array right after setting state.
@@ -42,6 +42,9 @@ function WorkSection () {
         title = 'Work Experience' 
         id = 'addWorkExperienceBtn'
         handleForm = {handleForm}
+        onClick = {
+          console.log(workExp)
+        }
         //when button is clicked, above function will be called.
       />
     </div>
