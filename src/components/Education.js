@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import AddBtn from './AddBtn';
 import EduExpForm from './EduExpForm';
 
-const initEduExp = {
+const initEduExp = { // creating initial education object for the form.
   school: '',
   major: '',
   gpa: '',
@@ -34,6 +34,8 @@ function EducationSection () {
         <EduExpForm
           initEduExp = {initEduExp}
           addNewEduExp = {addNewEduExp}
+          toggleForm = {toggleForm}
+          formState = {formState}
         />
       </div>
       <div className = 'addBtnContainer'>
