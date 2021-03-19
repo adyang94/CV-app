@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import RenderForm from './renderForm';
 import WorkExpForm from './WorkExpForm';
+import RenderExperience from './renderExp.js';
 
 function AddBtn (props) {
   return (
@@ -33,6 +34,7 @@ function WorkSection () {
     <div className = 'workExperience'>
       <h3>Work Experience:</h3>
       <div className = 'formsCtn-WE'></div>
+      <RenderExperience/>
       <WorkExpForm
         openForm = {openForm}
         saveWorkExp = {saveWorkExp}
